@@ -7,6 +7,6 @@ public class TestCode {
         System.out.println(name.length());
 
         // Testing GitHub webhook integration
-        // Testing AI review webhook - second test
+        // Testing AI review webhook - final integration test
     }
 }
