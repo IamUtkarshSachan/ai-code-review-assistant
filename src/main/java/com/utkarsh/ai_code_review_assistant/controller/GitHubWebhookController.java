@@ -102,7 +102,7 @@ public class GitHubWebhookController {
         );
 
         /*
-         * Review every changed file.
+         * Review changed Java files only.
          */
         for (GitHubFileDTO file : files) {
 
@@ -110,6 +110,19 @@ public class GitHubWebhookController {
                     "File: "
                             + file.getFilename()
             );
+
+            /*
+             * Ignore non-Java files.
+             */
+            if (!file.getFilename().endsWith(".java")) {
+
+                System.out.println(
+                        "Skipping non-Java file: "
+                                + file.getFilename()
+                );
+
+                continue;
+            }
 
             System.out.println(
                     "Status: "
@@ -154,7 +167,7 @@ public class GitHubWebhookController {
             }
 
             /*
-             * Send the changed code to Gemini.
+             * Send the changed Java code to Gemini.
              */
             System.out.println(
                     "===== AI CODE REVIEW ====="
