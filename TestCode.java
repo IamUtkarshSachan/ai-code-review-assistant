@@ -10,6 +10,7 @@ public class TestCode {
        // test 2
         // test AI - retry
 
+        System.out.println("Testing AI code review");
 
     }
 }
