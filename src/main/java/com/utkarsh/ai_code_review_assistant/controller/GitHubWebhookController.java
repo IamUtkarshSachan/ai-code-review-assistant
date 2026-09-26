@@ -106,6 +106,18 @@ public class GitHubWebhookController {
          */
         for (GitHubFileDTO file : files) {
 
+            /*
+             * TEMPORARY TEST:
+             * Only send TestCode.java to Gemini.
+             *
+             * This prevents multiple Gemini API
+             * requests while we test the API key
+             * and review flow.
+             */
+            if (!file.getFilename().equals("TestCode.java")) {
+                continue;
+            }
+
             System.out.println(
                     "File: "
                             + file.getFilename()
